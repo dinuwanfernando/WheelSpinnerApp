@@ -131,8 +131,8 @@ body {
 .wheel-pointer {
     position: absolute;
     top: 50%;
-    left: -20px;
-    transform: translateY(-50%) rotate(90deg);
+    right: -20px;
+    transform: translateY(-50%) rotate(270deg);
     width: 40px;
     height: 60px;
     clip-path: polygon(50% 100%, 0 0, 100% 0);
