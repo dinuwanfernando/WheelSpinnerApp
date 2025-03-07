@@ -116,7 +116,10 @@ class WheelGame {
         const winningIndex = Math.floor(
             (2 * Math.PI - normalizedRotation) / segmentAngle
         ) % this.prizes.length;
+
+        // Get the actual prize that was landed on
         const prize = this.prizes[winningIndex];
+        console.log('Winning Index:', winningIndex, 'Prize:', prize); // Debug log
 
         // Add enhanced celebration effects
         const wheelContainer = this.canvas.parentElement;
