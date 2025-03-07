@@ -116,15 +116,14 @@ class WheelGame {
         const winningIndex = Math.floor(
             (2 * Math.PI - normalizedRotation) / segmentAngle
         ) % this.prizes.length;
-
-        // Get the actual prize that was landed on
-        const prize = this.prizes[winningIndex];
-        console.log('Winning Index:', winningIndex, 'Prize:', prize); // Debug log
+        console.log('Winning Index:', winningIndex, 'Prize:', this.prizes[winningIndex]); // Debug log
 
         // Add enhanced celebration effects
         const wheelContainer = this.canvas.parentElement;
         wheelContainer.classList.add('celebration');
         setTimeout(() => wheelContainer.classList.remove('celebration'), 2100); // 3 iterations of 0.7s animation
+
+        const prize = this.prizes[winningIndex];
 
         if (prize === 'No luck') {
             this.resultDiv.innerHTML = '<p class="text-danger">Better luck next time!</p>';
