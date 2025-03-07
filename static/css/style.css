@@ -1,0 +1,97 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1620121692029-d088224ddc74') center/cover fixed;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    padding-top: 2rem;
+}
+
+.game-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    color: #4ECDC4;
+    text-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+    margin-bottom: 2rem;
+}
+
+#wheelCanvas {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.btn-spin {
+    background: linear-gradient(45deg, #4ECDC4, #45B7D1);
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin: 2rem 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-spin:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+}
+
+.btn-spin:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#emailForm {
+    display: none;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #4ECDC4;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25);
+}
+
+.crypto-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+}
+
+#result {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        padding: 1rem;
+    }
+    
+    .btn-spin {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+}
