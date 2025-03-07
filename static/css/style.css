@@ -95,3 +95,41 @@ body {
         font-size: 1rem;
     }
 }
+
+/* Add pointer styles after the wheel-container styles */
+.wheel-container {
+    position: relative;
+    margin: 2rem auto;
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 60px;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    background-color: #FF6B6B;
+    z-index: 10;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+
+/* Add celebration styles */
+@keyframes celebrate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.celebration {
+    animation: celebrate 0.5s ease-in-out;
+}
+
+.win-message {
+    font-size: 1.5rem;
+    color: #4ECDC4;
+    text-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+    margin: 1rem 0;
+    animation: celebrate 0.5s ease-in-out;
+}

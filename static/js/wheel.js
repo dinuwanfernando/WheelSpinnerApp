@@ -10,7 +10,7 @@ class WheelGame {
         this.spinButton = document.getElementById('spinButton');
         this.emailForm = document.getElementById('emailForm');
         this.resultDiv = document.getElementById('result');
-        
+
         this.init();
     }
 
@@ -118,11 +118,24 @@ class WheelGame {
         ) % this.prizes.length;
         const prize = this.prizes[winningIndex];
 
+        // Add celebration effects to wheel container
+        const wheelContainer = this.canvas.parentElement;
+        wheelContainer.classList.add('celebration');
+        setTimeout(() => wheelContainer.classList.remove('celebration'), 500);
+
         if (prize === 'No luck') {
             this.resultDiv.innerHTML = '<p class="text-danger">Better luck next time!</p>';
             this.emailForm.style.display = 'none';
         } else {
-            this.resultDiv.innerHTML = `<p class="text-success">Congratulations! You won ${prize}!</p>`;
+            // Enhanced winning message with celebration
+            this.resultDiv.innerHTML = `
+                <div class="win-message">
+                    🎉 Congratulations! 🎉
+                    <br>
+                    You won ${prize}!
+                </div>
+                <p class="text-success">Enter your email below to claim your prize!</p>
+            `;
             this.emailForm.style.display = 'block';
             document.getElementById('prizefield').value = prize;
         }

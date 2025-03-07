@@ -20,15 +20,16 @@
                     </h1>
                     
                     <div class="wheel-container">
+                        <div class="wheel-pointer"></div>
                         <canvas id="wheelCanvas"></canvas>
                     </div>
-
+                    
                     <button id="spinButton" class="btn btn-spin btn-primary">
                         <i class="fas fa-sync-alt"></i> Spin to Win
                     </button>
-
+                    
                     <div id="result"></div>
-
+                    
                     <form id="emailForm" style="display: none;">
                         <div class="mb-3">
                             <input type="email" class="form-control" id="email" 
@@ -43,7 +44,7 @@
             </div>
         </div>
     </div>
-
+    
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/wheel.js') }}"></script>
 </body>
