@@ -18,10 +18,10 @@ class WheelGame {
         // Make canvas responsive
         this.resizeCanvas();
         window.addEventListener('resize', () => this.resizeCanvas());
-        
+
         // Initial wheel draw
         this.drawWheel();
-        
+
         // Event listeners
         this.spinButton.addEventListener('click', () => this.spin());
         this.emailForm.addEventListener('submit', (e) => this.handleEmailSubmit(e));
@@ -51,7 +51,7 @@ class WheelGame {
             this.ctx.arc(0, 0, radius, i * segmentAngle, (i + 1) * segmentAngle);
             this.ctx.fillStyle = this.colors[i];
             this.ctx.fill();
-            
+
             // Draw text
             this.ctx.save();
             this.ctx.rotate(i * segmentAngle + segmentAngle / 2);
@@ -73,14 +73,14 @@ class WheelGame {
 
     spin() {
         if (this.isSpinning) return;
-        
+
         this.isSpinning = true;
         this.spinButton.disabled = true;
-        
+
         // Random number of full rotations plus segment
         const rotations = 4 + Math.random() * 4;
         this.targetRotation = this.currentRotation + (rotations * 2 * Math.PI);
-        
+
         this.animate();
     }
 
@@ -94,7 +94,7 @@ class WheelGame {
         const animateFrame = () => {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
+
             this.currentRotation = startRotation + rotationDiff * ease(progress);
             this.drawWheel();
 
@@ -118,10 +118,10 @@ class WheelGame {
         ) % this.prizes.length;
         const prize = this.prizes[winningIndex];
 
-        // Add celebration effects to wheel container
+        // Add enhanced celebration effects
         const wheelContainer = this.canvas.parentElement;
         wheelContainer.classList.add('celebration');
-        setTimeout(() => wheelContainer.classList.remove('celebration'), 500);
+        setTimeout(() => wheelContainer.classList.remove('celebration'), 2100); // 3 iterations of 0.7s animation
 
         if (prize === 'No luck') {
             this.resultDiv.innerHTML = '<p class="text-danger">Better luck next time!</p>';
@@ -136,8 +136,14 @@ class WheelGame {
                 </div>
                 <p class="text-success">Enter your email below to claim your prize!</p>
             `;
+
+            // Show email form with animation
             this.emailForm.style.display = 'block';
+            setTimeout(() => this.emailForm.classList.add('show'), 100);
             document.getElementById('prizefield').value = prize;
+
+            // Scroll to email form
+            this.emailForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 
@@ -156,7 +162,7 @@ class WheelGame {
             });
 
             const data = await response.json();
-            
+
             if (data.success) {
                 this.emailForm.style.display = 'none';
                 this.resultDiv.innerHTML += '<p class="text-success">Prize claimed successfully!</p>';
