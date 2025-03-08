@@ -2,6 +2,7 @@
 name = "repl-nix-workspace"
 version = "0.1.0"
 description = "Add your description here"
+authors = ["Dinuwan Fernando <dinofernando2000@gmail.com>"]
 
 
 [tool.poetry.dependencies]
